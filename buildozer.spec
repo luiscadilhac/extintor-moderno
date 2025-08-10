@@ -4,6 +4,7 @@ package.name = extintormanager
 package.domain = com.yourname.extintormanager
 
 source.dir = .
+source.main = main.py
 source.include_exts = py,png,jpg,kv,atlas,json
 
 version = 1.0

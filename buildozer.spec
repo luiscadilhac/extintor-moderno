@@ -4,11 +4,11 @@ package.name = extintormanager
 package.domain = com.yourname.extintormanager
 
 source.dir = .
-source.main = main.py
+source.main = main_android.py
 source.include_exts = py,png,jpg,kv,atlas,json
 
 version = 1.0
-requirements = python3,kivy,reportlab
+requirements = python3,kivy
 
 [buildozer]
 log_level = 2

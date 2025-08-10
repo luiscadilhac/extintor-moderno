@@ -1,0 +1,194 @@
+<EmpresaScreen>:
+    name: 'empresa'
+    
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 15
+        
+        # Cabecalho
+        BoxLayout:
+            size_hint_y: None
+            height: 50
+            canvas.before:
+                Color:
+                    rgba: 0.5, 0.8, 1.0, 1  # Azul mais claro
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text: "Cadastro de Empresas"
+                color: 1, 1, 1, 1
+                bold: True
+                font_size: 20
+        
+        # Formulario
+        ScrollView:
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: 15
+                
+                # Campo Nome
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: 80
+                    Label:
+                        text: "Nome da Empresa*"
+                        color: 0.2, 0.2, 0.2, 1
+                        bold: True
+                        size_hint_y: None
+                        height: 30
+                    TextInput:
+                        id: nome_empresa
+                        multiline: False
+                        size_hint_y: None
+                        height: 40
+                        background_color: 0.95, 0.95, 0.98, 1
+                        foreground_color: 0.2, 0.2, 0.2, 1
+                
+                # Campo CNPJ
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: 80
+                    Label:
+                        text: "CNPJ"
+                        color: 0.2, 0.2, 0.2, 1
+                        bold: True
+                        size_hint_y: None
+                        height: 30
+                    TextInput:
+                        id: cnpj
+                        multiline: False
+                        size_hint_y: None
+                        height: 40
+                        background_color: 0.95, 0.95, 0.98, 1
+                        foreground_color: 0.2, 0.2, 0.2, 1
+                
+                # Campo Endereco
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: 80
+                    Label:
+                        text: "Endereco"
+                        color: 0.2, 0.2, 0.2, 1
+                        bold: True
+                        size_hint_y: None
+                        height: 30
+                    TextInput:
+                        id: endereco
+                        multiline: False
+                        size_hint_y: None
+                        height: 40
+                        background_color: 0.95, 0.95, 0.98, 1
+                        foreground_color: 0.2, 0.2, 0.2, 1
+                
+                # Campo Telefone
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: 80
+                    Label:
+                        text: "Telefone"
+                        color: 0.2, 0.2, 0.2, 1
+                        bold: True
+                        size_hint_y: None
+                        height: 30
+                    TextInput:
+                        id: telefone
+                        multiline: False
+                        size_hint_y: None
+                        height: 40
+                        background_color: 0.95, 0.95, 0.98, 1
+                        foreground_color: 0.2, 0.2, 0.2, 1
+                
+                # Campo Email
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: 80
+                    Label:
+                        text: "E-mail"
+                        color: 0.2, 0.2, 0.2, 1
+                        bold: True
+                        size_hint_y: None
+                        height: 30
+                    TextInput:
+                        id: email
+                        multiline: False
+                        size_hint_y: None
+                        height: 40
+                        background_color: 0.95, 0.95, 0.98, 1
+                        foreground_color: 0.2, 0.2, 0.2, 1
+        
+        # Contador de registros
+        Label:
+            id: counter
+            text: "0/0"
+            size_hint_y: None
+            height: 30
+            color: 0.5, 0.5, 0.5, 1
+        
+        # Botoes de navegacao
+        BoxLayout:
+            size_hint_y: None
+            height: 50
+            spacing: 10
+            
+            Button:
+                text: "<<"
+                size_hint_x: 0.2
+                background_color: 0.5, 0.8, 1.0, 1  # Azul mais claro
+                on_press: root.navigate_first()
+            
+            Button:
+                text: "<"
+                size_hint_x: 0.2
+                background_color: 0.5, 0.8, 1.0, 1  # Azul mais claro
+                on_press: root.navigate_previous()
+            
+            Button:
+                text: ">"
+                size_hint_x: 0.2
+                background_color: 0.5, 0.8, 1.0, 1  # Azul mais claro
+                on_press: root.navigate_next()
+            
+            Button:
+                text: ">>"
+                size_hint_x: 0.2
+                background_color: 0.5, 0.8, 1.0, 1  # Azul mais claro
+                on_press: root.navigate_last()
+        
+        # Botoes de acao
+        BoxLayout:
+            size_hint_y: None
+            height: 50
+            spacing: 10
+            
+            Button:
+                text: "Novo"
+                size_hint_x: 0.25
+                background_color: 0.5, 0.9, 0.6, 1  # Verde mais claro
+                on_press: root.new_empresa()
+            
+            Button:
+                text: "Salvar"
+                size_hint_x: 0.25
+                background_color: 0.5, 0.9, 0.6, 1  # Verde mais claro
+                on_press: root.save_empresa()
+            
+            Button:
+                text: "Excluir"
+                size_hint_x: 0.25
+                background_color: 1.0, 0.6, 0.5, 1  # Vermelho mais claro
+                on_press: root.delete_empresa()
+            
+            Button:
+                text: "Voltar"
+                size_hint_x: 0.25
+                background_color: 0.8, 0.8, 0.8, 1  # Cinza mais claro
+                on_press: app.root.current = 'home'

@@ -1,0 +1,39 @@
+{
+  "empresas": {
+    "TESTE001": {
+      "nome": "Empresa Teste LTDA",
+      "cnpj": "12.345.678/0001-90",
+      "endereco": "Rua Teste, 123",
+      "responsavel": "João da Silva",
+      "data_cadastro": "2025-08-03T19:19:31.064446",
+      "codigo_acesso": "TESTE001"
+    }
+  },
+  "candidatos": {
+    "CAND001": {
+      "nome": "Maria Santos",
+      "cpf": "123.456.789-00",
+      "cargo": "Técnica de Segurança",
+      "empresa": "TESTE001",
+      "data_inscricao": "2025-08-03T19:19:31.064458",
+      "numero": 1,
+      "foto": null
+    },
+    "CAND002": {
+      "nome": "Pedro Oliveira",
+      "cpf": "987.654.321-00",
+      "cargo": "Engenheiro",
+      "empresa": "TESTE001",
+      "data_inscricao": "2025-08-03T19:19:31.064459",
+      "numero": 2,
+      "foto": null
+    }
+  },
+  "votos": {},
+  "eleitores": {},
+  "configuracoes": {
+    "eleicao_ativa": false,
+    "data_inicio": "",
+    "data_fim": ""
+  }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Eleição CIPA</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+        h1 { color: #333; }
+        ul { list-style: none; padding: 0; }
+        li { background-color: #f2f2f2; padding: 10px; margin-bottom: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; }
+        .candidate-name { font-weight: bold; }
+        .vote-count { background-color: #007bff; color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.9em; }
+        .total-info { margin-top: 20px; font-weight: bold; text-align: center; }
+        .back-link { display: block; text-align: center; margin-top: 20px; text-decoration: none; color: #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resultados da Eleição CIPA</h1>
+
+        <ul>
+            {% for resultado in resultados %}
+                <li>
+                    <span class="candidate-name">{{ resultado.nome }}</span>
+                    <span class="vote-count">{{ resultado.votos }} votos</span>
+                </li>
+            {% else %}
+                <li>Nenhum voto registrado ainda.</li>
+            {% endfor %}
+        </ul>
+
+        <p class="total-info">Total de votantes: {{ total_votantes }}</p>
+
+        <a href="/" class="back-link">Voltar para a Página Inicial</a>
+    </div>
+</body>
+</html>

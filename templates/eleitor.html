@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleitor - Eleição CIPA</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+        h1 { color: #333; }
+        form div { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], input[type="number"], select, input[type="submit"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .flash { padding: 10px; margin-bottom: 15px; border-radius: 4px; }
+        .flash.success { background-color: #d4edda; color: #155724; border-color: #c3e6cb; }
+        .flash.danger { background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; }
+        .back-link { display: block; text-align: center; margin-top: 20px; text-decoration: none; color: #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Terminal do Eleitor</h1>
+
+        {% if mensagem_sucesso %}
+            <div class="flash success">{{ mensagem_sucesso }}</div>
+        {% endif %}
+        {% if mensagem_erro %}
+            <div class="flash danger">{{ mensagem_erro }}</div>
+        {% endif %}
+
+        <form method="POST">
+            <div>
+                <label for="id_eleitor_input">Seu ID (informado ao mesário):</label>
+                <input type="text" id="id_eleitor_input" name="id_eleitor_input" placeholder="Ex: Func_001" required>
+            </div>
+            <div>
+                <label for="codigo_input">Código de Validação (obtido do mesário):</label>
+                <input type="text" id="codigo_input" name="codigo_input" placeholder="Ex: 123456" required>
+            </div>
+            <div>
+                <label for="candidato_input">Selecione seu Candidato:</label>
+                <select id="candidato_input" name="candidato_input" required>
+                    <option value="">-- Escolha um candidato --</option>
+                    {% for numero, nome in candidatos.items() %}
+                        <option value="{{ numero }}">{{ numero }} - {{ nome }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <input type="submit" value="Votar">
+        </form>
+        <a href="/" class="back-link">Voltar para a Página Inicial</a>
+    </div>
+</body>
+</html>
